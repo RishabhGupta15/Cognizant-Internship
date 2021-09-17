@@ -1,0 +1,19 @@
+<div class="container">
+    <p>Simple Button Click Event!!</p>
+    <button (click)="changeShow()" class="btn btn-light">Click Me</button>
+    <div *ngIf="show"> {{ text }} </div>
+</div>
+<hr/>
+<div class="container">
+    <p>Model Binding</p>
+    <label><input type="number" [value]="dispNum" /> <button (click)="incrementByOne()" class="btn btn-light">Add</button></label>
+</div>
+<hr/>
+<div class="container">
+    <p>Increment & Decrement Button</p>
+    
+        <button class="btn btn-secondary" (click)="decrementByOne()" [disabled]="dispNum === 0">-</button>
+        <input type="number" [value]="dispNum"  />
+        <button class="btn btn-secondary" (click)="incrementByOne()">+</button>
+    
+</div>  

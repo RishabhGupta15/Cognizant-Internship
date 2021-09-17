@@ -1,0 +1,49 @@
+<div class="container row">
+  <div class="col">
+    <p class="h4">Edit Employee</p>
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter name" [(ngModel)]="inputName" (change)="checkInputName()" />
+        <span class="badge bg-danger" *ngIf="showDanger">Name must be at least 2 characters long </span>
+      </div>
+      <!-- <div class="card">
+        {{ inputName }}
+      </div> -->
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Salary</label>
+        <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Enter Salary" [(ngModel)]="inputSalary">
+      </div>
+      <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">Is Permanent or not?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" (change)="setIsPermanent(true)">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Yes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked (change)="setIsPermanent(false)">
+          <label class="form-check-label" for="flexRadioDefault2">
+            No
+          </label>
+        </div>
+      </div>
+      <label for="formGroupExampleInput2" class="form-label">Department</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="inputDepartment">
+        <option selected>Open this select menu</option>
+        <option *ngFor="let department of departments" [value]="department.id"> {{ department.name }} </option>
+      </select>
+    
+      <button type="button" class="btn btn-primary" (click)="setValues()">Submit</button>
+  </div>
+    
+    <div class="col">
+      <div class="container">
+        <p class="h4">Employee Model</p>
+        <pre>{{ emp | json }}</pre>
+      </div>
+    </div>
+</div>
+<div class="alert alert-primary container" role="alert" *ngIf="successShow">
+  Employee Updated!!!
+</div>

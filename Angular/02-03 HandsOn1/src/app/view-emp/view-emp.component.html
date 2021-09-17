@@ -1,0 +1,22 @@
+<div class="container">
+    <p><b>Employee Details</b></p>
+    <p><b>ID:</b>{{employee1.id}}</p> 
+    <p><b>Name:</b> {{employee1.name}}</p>
+    <p><b>Salary:</b> {{employee1.salary}}</p>
+    <p><b>Permanent:</b> {{employee1.permanent}}</p>
+    <p><b>Department Id:</b> {{employee1.department['id']}} </p>
+    <p><b>Department Name:</b> {{employee1.department['name']}} </p>
+  
+    <p><b>Skills</b></p>
+    <table>
+      <tr>
+        <th>Skill Id</th>
+        <th>Skill Name</th>
+      </tr>
+      <tr *ngFor="let skill of skillSet">
+        <td>{{skill.id}}</td>
+        <td>{{skill.name}}</td>
+      </tr>
+    </table>
+    <p><b>Date of Birth:</b> {{employee1.dob | date}}</p>
+  </div>

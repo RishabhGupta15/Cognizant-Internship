@@ -4,43 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CALCULATOR</title>
-    <style>
-        h1{
-            font-size: 20px;
-            color: blue;
-        }
-        img.sub{
-            width: 80px;
-            height: 80px;
-        }
-        img{
-            width: 400px;
-            height: 300px;
-        }
-    </style>
 </head>
 <body>
-    <h1>Calculator</h1>
-    <img src="calculator.jpg" alt="calculator">
-    <form action="">
-        <ul>
-            <li><label for="input1">Input1 <input type="text"></label></li>
-            <li><label for="input2">Input2 <input type="text"></label></li>
-            <li>
-                <label for="operation">Select operation
-                    <select name="operations" id="op">
-                        <option value="select">Select..</option>
-                        <option value="ADD">ADD</option>
-                        <option value="SUBTRACT">SUBTRACT</option>
-                        <option value="MULTIPLY">MULTIPLY</option>
-                    </select>
-                </label>
-            </li>
-        </ul>
-    </form>
-    <span>
-        <a href="calc.jpg" class="sub"></a>
-        <a href="reset.jpg" class="sub"></a>
-    </span>
+    <font color="blue" size="20">Calculator</font>
+    <img src="calculator.jpg" alt="calculator" style="height: 80px; width: 80px;">
+    <label for="input1">Input1</label>
+    <input type="number" name="input1" id="input1">
+    <label for="input2">Input2</label>
+    <input type="number" name="input2" id="input2">
+    <label for="operation">Select Operation</label>
+    <select name="operation" id="operation">
+        <option value="Select..">Select..</option>
+        <option value="ADD">ADD</option>
+        <option value="SUBTRACT">SUBTRACT</option>
+        <option value="MULTIPLY">MULTIPLY</option>
+        <option value="DIVIDE">DIVIDE</option>
+    </select>
+    <img src="calc.jpg" alt="submit" style="height: 80px; width: 80px;">
+    <img src="reset.jpg" alt="reset" style="height: 80px; width: 80px;">
 </body>
 </html>

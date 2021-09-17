@@ -1,0 +1,31 @@
+<div class="container">
+    <h4>Edit Employee</h4>
+    <form [formGroup]="empEditForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="form-label">Name:</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter name here..." formControlName="name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Salary:</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="Enter salary" formControlName="salary">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="isPermanent">Is Permanent:</label>
+            <input type="radio" value="true" id="isPermanent" name="isPermanent" formControlName="isPermanent"> Yes
+            <input type="radio" value="false" id="isPermanent" name="isPermanent" formControlName="isPermanent"> No
+        </div>
+        <div class="mb-3">
+             <label fclass="form-label">Select the department</label>
+             <select class="form-select" aria-label="Default select example" formControlName="departmentId">
+                <option *ngFor="let dep of departments" [value]="dep.id">{{ dep.name }}</option>
+              </select>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <div class="alert alert-success" role="alert" *ngIf="showSuccess">
+       Form Submitted!!!
+      </div>
+</div>
+  
