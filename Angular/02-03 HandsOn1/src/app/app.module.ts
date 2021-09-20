@@ -14,6 +14,8 @@ import { EditEmpTemplateDrivenComponent } from './edit-emp-template-driven/edit-
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeInfoComponent } from './employee-list/employee-info/employee-info.component';
 import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.component';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
 
 // const routes: Routes = [
 //   {path: '', component: AppComponent},
@@ -30,7 +32,9 @@ import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.
     EditEmpTemplateDrivenComponent,
     EmployeeListComponent,
     EmployeeInfoComponent,
-    EditEmpReactiveComponent
+    EditEmpReactiveComponent,
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

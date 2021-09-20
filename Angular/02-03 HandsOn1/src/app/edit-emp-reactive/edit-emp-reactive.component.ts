@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Employee } from '../view-emp/employee';
 import { Department } from '../view-emp/department';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-emp-reactive',
@@ -10,7 +11,7 @@ import { Department } from '../view-emp/department';
 })
 export class EditEmpReactiveComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   departments: Department[] = [
     {id: 1, name: 'Payroll'},

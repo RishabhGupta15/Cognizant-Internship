@@ -6,13 +6,18 @@ import { QuantityIncrementComponent } from './quantity-increment/quantity-increm
 import { EditEmpTemplateDrivenComponent } from './edit-emp-template-driven/edit-emp-template-driven.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.component';
+import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   {path: 'view-emp', component: ViewEmpComponent},
   {path: 'edit-emp', component: EditEmpComponent},
   {path: 'quality-inc', component: QuantityIncrementComponent},
   {path: 'edit-emp-templete-driven', component: EditEmpTemplateDrivenComponent},
   {path: 'employee-list', component: EmployeeListComponent},
-  {path: 'edit-emp-reactive', component: EditEmpReactiveComponent}
+  {path: 'edit-emp-reactive', component: EditEmpReactiveComponent, canActivate:[AuthGuard]},
+  {path: 'user', component: UserComponent},
+  {path: 'login',component: LoginComponent}
 ];
 
 @NgModule({
