@@ -19,6 +19,18 @@ export class EditEmpReactiveComponent implements OnInit {
     {id: 3, name: 'HR'}
   ];
 
+  employee1: Employee = {
+    id: 1,
+    name: 'John',
+    salary: 200,
+    permanent: false,
+    department: this.departments[2],
+    skills: [{id:1, name:'html'}, {id:2, name:'css'}],
+    dob: new Date('11/10/1999')
+  };
+
+  
+
   empEditForm: FormGroup = new FormGroup({
     name: new FormControl('',[Validators.required, Validators.minLength(4), Validators.maxLength(20 )]),
     salary: new FormControl(''),
@@ -33,6 +45,17 @@ export class EditEmpReactiveComponent implements OnInit {
 
   onSubmit(){
     console.log(this.empEditForm.value);
+    console.log(this.employee1);
+    this.employee1.name = this.empEditForm.get('name')?.value;
+    this.employee1.salary = this.empEditForm.get('salary')?.value;
+    this.employee1.permanent = this.empEditForm.get('isPermanent')?.value;
+    let depId = this.empEditForm.get('departmentId')?.value
+    for (let i of this.departments){
+      if (i.id === depId){
+        this.employee1.department = i;
+      }
+    }
+    console.log(this.employee1);
     this.showSuccess = true;
   }
 
