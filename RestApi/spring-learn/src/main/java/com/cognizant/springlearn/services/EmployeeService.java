@@ -2,6 +2,7 @@ package com.cognizant.springlearn.services;
 
 import com.cognizant.springlearn.entity.Department;
 import com.cognizant.springlearn.entity.Employee;
+import com.cognizant.springlearn.exceptions.EmployeeNotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -16,17 +17,25 @@ public class EmployeeService {
 
     Logger logger = LoggerFactory.getLogger(EmployeeService.class);
 
-    ApplicationContext applicationContext;
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("employee.xml");;
+    List<Employee> listOfEmployees = applicationContext.getBean("employeeList", ArrayList.class);
+    List<Department> listOfDepartment = applicationContext.getBean("departmentList",ArrayList.class);
 
     public List<Employee> getAllEmployees(){
-        applicationContext = new ClassPathXmlApplicationContext("employee.xml");
-        List<Employee> listOfEmployees = applicationContext.getBean("employeeList", ArrayList.class);
-        return listOfEmployees;
+        return this.listOfEmployees;
     }
 
     public List<Department> getAllDepartments(){
-        applicationContext = new ClassPathXmlApplicationContext("employee.xml");
-        List<Department> listOfDepartment = applicationContext.getBean("departmentList",ArrayList.class);
-        return listOfDepartment;
+        return this.listOfDepartment;
+    }
+
+    public void updateEmployee(int empId, Employee newEmp) throws EmployeeNotFound {
+        for(Employee e: listOfEmployees){
+            if(e.getId() == empId){
+                e = newEmp;
+                return;
+            }
+        }
+        throw new EmployeeNotFound();
     }
 }
