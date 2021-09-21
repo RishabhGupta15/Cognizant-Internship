@@ -34,8 +34,22 @@ public class EmployeeController {
 
     @PostMapping("/employees/update/{id}")
     public void updateEmployee(@RequestBody @Valid Employee employee, @PathVariable("id") int empId ) throws EmployeeNotFound {
-        logger.info("{}", employee);
+        logger.info("{}", employeeService.getAllEmployees());
         employeeService.updateEmployee(empId, employee);
-       logger.info("{}", employeeService.getAllEmployees());
+        logger.info("{}", employeeService.getAllEmployees());
+    }
+
+    @PostMapping("/employees/delete/{id}")
+    public void deleteEmployee(@PathVariable("id") int empId) throws EmployeeNotFound {
+        logger.info("{}", employeeService.getAllEmployees());
+        employeeService.removeEmployee(empId);
+        logger.info("{}", employeeService.getAllEmployees());
+    }
+
+    @PostMapping("employees/add")
+    public void addEmployee(@RequestBody @Valid Employee employee){
+        logger.info("{}", employeeService.getAllEmployees());
+        employeeService.addEmployee(employee);
+        logger.info("{}", employeeService.getAllEmployees());
     }
 }

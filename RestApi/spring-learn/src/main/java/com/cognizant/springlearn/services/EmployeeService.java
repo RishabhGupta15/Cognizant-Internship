@@ -32,10 +32,23 @@ public class EmployeeService {
     public void updateEmployee(int empId, Employee newEmp) throws EmployeeNotFound {
         for(Employee e: listOfEmployees){
             if(e.getId() == empId){
-                e = newEmp;
+                listOfEmployees.set(empId-1, newEmp);
                 return;
             }
         }
         throw new EmployeeNotFound();
+    }
+
+    public void addEmployee(Employee employee){
+        listOfEmployees.add(employee);
+    }
+
+    public void removeEmployee(int empId) throws EmployeeNotFound {
+        Employee emp = null;
+        for(Employee e : listOfEmployees){
+            if(e.getId() == empId) emp = e;
+        }
+        if (emp == null) throw new EmployeeNotFound();
+        boolean isDeleted = listOfEmployees.remove(emp);
     }
 }
