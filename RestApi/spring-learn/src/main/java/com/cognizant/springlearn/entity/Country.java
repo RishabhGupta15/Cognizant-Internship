@@ -1,6 +1,11 @@
 package com.cognizant.springlearn.entity;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class Country {
+    @NotNull
+    @Size(min = 2, max = 2, message = "country code should be two characters")
     private String code;
     private String name;
 
@@ -28,3 +33,4 @@ public class Country {
                 '}';
     }
 }
+    

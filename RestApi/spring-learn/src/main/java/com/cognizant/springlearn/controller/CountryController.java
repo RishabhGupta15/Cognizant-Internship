@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -41,8 +42,9 @@ public class CountryController {
         return countryService.getCountryByCode(countryCode);
     }
 
-    @PostMapping()
-    public void addCountry(){
+    @PostMapping("/add")
+    public void addCountry(@RequestBody @Valid Country country){
         LOGGER.debug("starting addCountry method");
+        LOGGER.info("{}", country);
     }
 }
