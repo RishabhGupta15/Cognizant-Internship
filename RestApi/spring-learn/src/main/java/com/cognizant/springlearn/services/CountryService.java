@@ -26,7 +26,7 @@ public class CountryService {
 
     public Country getCountry(){
         applicationContext = new ClassPathXmlApplicationContext("country.xml");
-        Country country = applicationContext.getBean("country", Country.class);
+        Country country = applicationContext.getBean("in", Country.class);
         return country;
     }
 
