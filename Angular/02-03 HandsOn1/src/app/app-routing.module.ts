@@ -9,6 +9,9 @@ import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
 const routes: Routes = [
   {path: 'view-emp', component: ViewEmpComponent},
   {path: 'edit-emp', component: EditEmpComponent},
@@ -17,7 +20,10 @@ const routes: Routes = [
   {path: 'employee-list', component: EmployeeListComponent},
   {path: 'edit-emp-reactive', component: EditEmpReactiveComponent, canActivate:[AuthGuard]},
   {path: 'user', component: UserComponent},
-  {path: 'login',component: LoginComponent}
+  {path: 'login',component: LoginComponent},
+  {path: 'create-user', component:CreateUserComponent},
+  {path: 'update-user', component:UpdateUserComponent},
+  {path: 'delete-user', component:DeleteUserComponent}
 ];
 
 @NgModule({

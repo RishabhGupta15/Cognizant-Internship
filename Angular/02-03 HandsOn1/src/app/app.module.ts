@@ -16,6 +16,10 @@ import { EmployeeInfoComponent } from './employee-list/employee-info/employee-in
 import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { CardComponent } from './card/card.component';
 
 // const routes: Routes = [
 //   {path: '', component: AppComponent},
@@ -34,7 +38,11 @@ import { LoginComponent } from './login/login.component';
     EmployeeInfoComponent,
     EditEmpReactiveComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    CreateUserComponent,
+    UpdateUserComponent,
+    DeleteUserComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

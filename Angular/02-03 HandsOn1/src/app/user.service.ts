@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
-import { Usr } from './user/usr';
 import { throwError } from 'rxjs';
 
 @Injectable({
@@ -10,6 +9,11 @@ import { throwError } from 'rxjs';
 export class UserService {
 
   url: string = 'https://reqres.in/api/users?page=2';
+  user = {
+    "name": "morpheus",
+    "job": "leader"
+};
+  
 
   constructor(private http:HttpClient) { }
 
@@ -22,11 +26,11 @@ export class UserService {
   }
 
   getNewUser(){
-    return this.http.get<User>('https://reqres.in/api/users/2');
+    return this.http.post<User>('https://reqres.in/api/users', this.user);
   }
 
-  putUpdateUser(user1: Usr){
-    return this.http.put('https://reqres.in/', user1);
+  updateUser(){
+    return this.http.put('https://reqres.in/api/users/2', this.user);
   }
 
 }

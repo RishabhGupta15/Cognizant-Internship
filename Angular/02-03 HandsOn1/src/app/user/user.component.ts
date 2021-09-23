@@ -11,22 +11,16 @@ import { throwError } from 'rxjs';
 export class UserComponent implements OnInit {
 
   allUsers: User[] = [];
-  newUser: User = {
-    id: '',
-    email: '',
-    first_name: '',
-    last_name: '',
-    avatar: ''
-  };
-
+  jsondata = {};
+  
   constructor(private service:UserService) { }
 
   ngOnInit(): void {
     this.service.getAllUsers()
-    .subscribe((data:User[])=>{
-    this.allUsers=data;
-    console.log(this.allUsers);
+    .subscribe((data:any)=>{
+    this.jsondata=data;
     });
+    
   }
 
   myError(){
@@ -34,10 +28,4 @@ export class UserComponent implements OnInit {
     return throwError('new error thrown');
   }
 
-  createUser(){
-      this.service.getNewUser().subscribe((data: User)=>{
-      this.newUser=data;
-      console.log(this.newUser);
-      });
-  }
 }
