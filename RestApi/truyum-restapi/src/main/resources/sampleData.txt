@@ -1,0 +1,4 @@
+insert into menu values(
+(1, true, 'pasta', 500),
+(2, true, 'pasta', 500),
+(3, true, 'pasta', 500))
