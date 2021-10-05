@@ -1,7 +1,7 @@
 package com.cognizant.truyumrestapi.dao;
 
-import com.cognizant.truyumrestapi.entity.Menu;
+import com.cognizant.truyumrestapi.entity.MenuItem;
 import org.springframework.data.repository.CrudRepository;
 
-public interface MenuRepository  extends CrudRepository<Menu, Long> {
+public interface MenuRepository  extends CrudRepository<MenuItem, Long> {
 }

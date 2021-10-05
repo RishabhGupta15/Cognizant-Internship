@@ -6,17 +6,18 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
 @Entity
+@Table(name="cart")
+@Data
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cart_id;
-    @OneToMany(mappedBy = "cart")
-    private List<Menu> menu_items;
+    @Column(name="ca_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    @JoinColumn(name="cart_user_id")
     private User user;
-
+    @ManyToOne
+    @JoinColumn(name="cart_item_id")
+    private MenuItem menuItem;
 }
