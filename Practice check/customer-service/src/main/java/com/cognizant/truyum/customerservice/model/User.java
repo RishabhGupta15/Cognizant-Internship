@@ -11,8 +11,6 @@ import javax.persistence.ManyToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
 @Entity
 public class User {
 	@Id
@@ -23,4 +21,39 @@ public class User {
 	
 	@ManyToMany
 	private List<MenuItem> cart;
+
+	public User() {
+	}
+
+	public User(int id, String name, List<MenuItem> cart) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.cart = cart;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<MenuItem> getCart() {
+		return cart;
+	}
+
+	public void setCart(List<MenuItem> cart) {
+		this.cart = cart;
+	}
+	
 }
