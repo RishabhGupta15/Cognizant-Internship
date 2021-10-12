@@ -1,0 +1,53 @@
+version: "3.6"
+services:
+  db:
+    image: mysql
+    container_name: mysqldb
+    ports: 
+      - 3300:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=employee_db
+    networks: 
+      - employee-network
+    volumes:
+      - ./mysqldb:/var/lib/mysql
+      - ./dbscripts:/docker-entrypoint-initdb.d
+  
+  eureka:
+      image: eureka-server
+      build: ./eureka-discovery-server
+      container_name: eureka-server
+      ports: 
+        - 8761:8761
+      networks: 
+      - employee-network
+  zuul:
+    image: zuul-service
+    build: ./zuul-gateway
+    container_name: zuul-service
+    ports: 
+      - 8083:8083
+    depends_on: 
+      - db
+      - eureka
+    networks: 
+      - employee-network
+  
+  employee-service:
+      image: employee-service
+      build: ./employee-service
+      container_name: employee-service
+      ports: 
+        - 8090:8090
+      depends_on: 
+        - db
+        - eureka
+        - zuul
+      networks: 
+        - employee-network
+      
+
+networks:
+  employee-network:
+    name: employee-network
